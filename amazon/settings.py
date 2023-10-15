@@ -56,7 +56,7 @@ MIDDLEWARE = [
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Example: Allow requests from this origin
-    "http://bugucam.pythonanywhere.com/",
+    "http://bugucam.pythonanywhere.com",
     # Add more origins if needed
 ]
 
