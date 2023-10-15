@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'amazon',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -48,7 +49,19 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+
+# CORS settings
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # Example: Allow requests from this origin
+    "https://yourfrontenddomain.com",
+    # Add more origins if needed
+]
+
+CORS_ALLOW_CREDENTIALS = True  # Set this to True if your frontend code sends credentials with requests
+
 
 ROOT_URLCONF = 'amazon.urls'
 
