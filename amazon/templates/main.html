@@ -1,13 +1,16 @@
-<!-- hello.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello, Django!</title>
-</head>
-<body>
-    <h1>Hello, Django!</h1>
-    <p>And here comes V5 with a single line.</p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Welcome to My Django App!</h1>
+    <p>This is the home page content.</p>
+
+    <div class="mb-3">
+      <label for="" class="form-label">ASIN Code</label>
+      <input type="text" class="form-control form-control-sm w-25" name="" id="" aria-describedby="helpId" placeholder="">
+      <div class="d-grid gap-2">
+        <button type="button" name="" id="" class="btn btn-success w-25 mt-3">Get Product details</button>
+      </div>
+      
+    </div>
+    
+{% endblock %}
