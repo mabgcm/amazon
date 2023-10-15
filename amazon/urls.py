@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.main, name='main'),
+    path('api/product-details/<str:asin_code>/', views.get_product_details),
 ]

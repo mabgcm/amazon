@@ -5,12 +5,35 @@
     <p>This is the home page content.</p>
 
     <div class="mb-3">
-      <label for="" class="form-label">ASIN Code</label>
-      <input type="text" class="form-control form-control-sm w-25" name="" id="" aria-describedby="helpId" placeholder="">
-      <div class="d-grid gap-2">
-        <button type="button" name="" id="" class="btn btn-success w-25 mt-3">Get Product details</button>
-      </div>
-      
+        <label for="asin" class="form-label">ASIN Code</label>
+        <input type="text" class="form-control form-control-sm w-25" name="asin" id="asin" aria-describedby="helpId" placeholder="">
+        <div class="d-grid gap-2">
+            <button type="button" id="get-product-btn" class="btn btn-success w-25 mt-3">Get Product details</button>
+        </div>
     </div>
-    
+
+    <div id="product-details" class="mt-3">
+        <h2>Product Details</h2>
+        <h3 id="product-name"></h3>
+        <img id="product-image" src="" style="max-width: 250px; max-height: 250px;">
+        <!-- Display other product details here -->
+    </div>
+
+    <script>
+        document.getElementById("get-product-btn").addEventListener("click", function() {
+        var asinCode = document.getElementById("asin").value;
+        fetch(`/api/product-details/${asinCode}/`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.product) {
+                    document.getElementById("product-name").textContent = data.product.title;
+                    document.getElementById("product-image").src = data.product.main_image_url;
+                    // Set other product details here if needed
+                } else {
+                    console.error('Invalid response from server');
+                }
+            })
+            .catch(error => console.error(error));
+        });
+    </script>
 {% endblock %}
